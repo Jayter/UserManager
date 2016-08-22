@@ -71,4 +71,19 @@ public class UserDaoImpl implements UserDao {
         return userList;
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> listUsersByName(String name) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<User> userList = session.createQuery("from User").list();
+
+        List<User> finalList = new ArrayList<User>();
+
+        for(User user: userList) {
+            if(user.getName().equals(name))
+                finalList.add(user);
+        }
+
+        return finalList;
+    }
 }

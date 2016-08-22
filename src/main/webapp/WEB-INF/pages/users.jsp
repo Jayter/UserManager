@@ -72,6 +72,24 @@
     </tr>
 </table>
 
+<table>
+    <tr>
+        <td>
+            <h3>Search by name</h3>
+        </td>
+        <td>
+            <c:url var="searchByNameAction" value="/users/searchByName"/>
+
+            <form method="post" action="${searchByNameAction}">
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="type name"/>
+
+                <input type="submit" value="search"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
 <h1>User List</h1>
 
 <display:table id="user" name="listUsers" requestURI="users" pagesize="10">
